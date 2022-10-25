@@ -159,6 +159,7 @@ export const theme = extendTheme({
       },
       variants: {
         horizontal: {
+          horizontal: true,
           showsHorizontalScrollIndicator: false,
           my: '8',
           _contentContainerStyle: {
@@ -168,7 +169,7 @@ export const theme = extendTheme({
         vertical: {
           showsVerticalScrollIndicator: false,
           _contentContainerStyle: {
-            pb: '20',
+            pb: '12',
           },
         },
       },
