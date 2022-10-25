@@ -57,9 +57,7 @@ export default function PrivateRoutes() {
         <Avatar source={{ uri: 'https://github.com/tmowes.png' }} mr="4" size={16} />
         <VStack flex={1}>
           <Text fontSize="md">Olá,</Text>
-          <Heading fontSize="md" fontFamily="heading">
-            Julius
-          </Heading>
+          <Heading fontSize="md">Julius</Heading>
         </VStack>
         <IconButton icon={<SignOut size={24} color={colors.$gray[100]} />} />
       </HStack>

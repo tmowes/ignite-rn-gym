@@ -36,7 +36,7 @@ export function SignIn() {
           <Text color="$gray.100" fontSize="sm" mb="4">
             Ainda não tem acesso?
           </Text>
-          <Button variant="secondary" onPress={() => navigate('signup')}>
+          <Button variant="$outline" onPress={() => navigate('signup')}>
             Criar conta
           </Button>
         </Center>

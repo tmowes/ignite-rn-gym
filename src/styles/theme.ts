@@ -1,5 +1,5 @@
 /* eslint-disable sonarjs/no-duplicate-string */
-import { extendTheme, IButtonProps } from 'native-base'
+import { extendTheme } from 'native-base'
 
 export const theme = extendTheme({
   colors: {
@@ -107,7 +107,6 @@ export const theme = extendTheme({
         bg: '$gray.700',
         h: 14,
         px: 4,
-        mb: 4,
         borderWidth: 0,
         borderColor: '$gray.700',
         fontFamily: 'body',
