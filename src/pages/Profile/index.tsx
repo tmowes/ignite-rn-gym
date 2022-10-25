@@ -1,8 +1,15 @@
 import { useState } from 'react'
 
-import { Button, Center, Heading, Input, ScrollView, Skeleton, VStack } from 'native-base'
-
-import { UserPhoto } from '@components/UserPhoto'
+import {
+  Avatar,
+  Button,
+  Center,
+  Heading,
+  Input,
+  ScrollView,
+  Skeleton,
+  VStack,
+} from 'native-base'
 
 const PHOTO_SIZE = 33
 
@@ -22,12 +29,7 @@ export function Profile() {
               endColor="$gray.400"
             />
           ) : (
-            <UserPhoto
-              source={{ uri: userPhoto }}
-              size={PHOTO_SIZE}
-              alt="Imagem do usuário"
-              mr={4}
-            />
+            <Avatar source={{ uri: userPhoto }} size={PHOTO_SIZE} />
           )}
           <Button
             variant="link"

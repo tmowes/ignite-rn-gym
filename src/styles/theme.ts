@@ -108,6 +108,12 @@ export const theme = extendTheme({
         },
       },
     },
+    Avatar: {
+      defaultProps: {
+        borderWidth: 2,
+        borderColor: '$gray.400',
+      },
+    },
     TextArea: {
       baseStyle: {},
       defaultProps: {

@@ -5,13 +5,12 @@ import {
   BottomTabNavigationOptions,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs'
-import { Heading, HStack, IconButton, Text, useTheme, VStack } from 'native-base'
+import { Avatar, Heading, HStack, IconButton, Text, useTheme, VStack } from 'native-base'
 import { useNavigation } from '@react-navigation/native'
 
 import HomeSvg from '@assets/home.svg'
 import HistorySvg from '@assets/history.svg'
 import ProfileSvg from '@assets/profile.svg'
-import { UserPhoto } from '@components/UserPhoto'
 import { Home } from '@pages/Home'
 import { History } from '@pages/History'
 import { Profile } from '@pages/Profile'
@@ -55,12 +54,7 @@ export default function PrivateRoutes() {
   function HomeHeader() {
     return (
       <HStack bg="$gray.600" pl="6" pr="2" pt="8" pb="2" alignItems="center" w="full">
-        <UserPhoto
-          source={{ uri: 'https://github.com/tmowes.png' }}
-          alt="Imagem do usuário"
-          mr="4"
-          size={16}
-        />
+        <Avatar source={{ uri: 'https://github.com/tmowes.png' }} mr="4" size={16} />
         <VStack flex={1}>
           <Text fontSize="md">Olá,</Text>
           <Heading fontSize="md" fontFamily="heading">
