@@ -148,6 +148,36 @@ export const theme = extendTheme({
       defaultProps: {
         contentContainerStyle: {
           flexGrow: 1,
+          paddingBottom: 32,
+        },
+        showsVerticalScrollIndicator: false,
+      },
+    },
+    FlatList: {
+      defaultProps: {
+        showsVerticalScrollIndicator: false,
+      },
+      variants: {
+        horizontal: {
+          showsHorizontalScrollIndicator: false,
+          my: '8',
+          _contentContainerStyle: {
+            px: '8',
+          },
+        },
+        vertical: {
+          showsVerticalScrollIndicator: false,
+          _contentContainerStyle: {
+            pb: '20',
+          },
+        },
+      },
+    },
+    SectionList: {
+      defaultProps: {
+        contentContainerStyle: {
+          flexGrow: 1,
+          paddingBottom: 32,
         },
         showsVerticalScrollIndicator: false,
       },

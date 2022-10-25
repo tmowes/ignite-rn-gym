@@ -10,13 +10,10 @@ import { theme } from '@styles/theme'
 import { Routes } from './routes'
 
 export function AppSrc() {
-  const [fontsLoaded] = useFonts({
-    Roboto_400Regular,
-    Roboto_700Bold,
-  })
+  const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold })
 
   return (
-    <GestureHandlerRootView style={{ flex: 1, backgroundColor: '#121214' }}>
+    <GestureHandlerRootView style={{ flex: 1 }}>
       <NativeBaseProvider theme={theme}>
         {fontsLoaded ? <Routes /> : <Loading />}
         <StatusBar style="light" backgroundColor="transparent" translucent />
