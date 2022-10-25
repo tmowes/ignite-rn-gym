@@ -67,7 +67,7 @@ export default function PrivateRoutes() {
   }
 
   return (
-    <Navigator screenOptions={screenOptions}>
+    <Navigator screenOptions={screenOptions} initialRouteName="profile">
       <Screen
         name="home"
         component={Home}
