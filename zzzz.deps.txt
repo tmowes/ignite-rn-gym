@@ -1,0 +1,19 @@
+npx expo install
+expo-font
+@expo-google-fonts/roboto
+react-native-reanimated
+expo-linear-gradient
+react-native-svg
+react-native-gesture-handler
+react-native-safe-area-context
+react-native-screens
+
+
+@react-native-async-storage/async-storage
+
+@react-navigation/native
+@react-navigation/native-stack
+axios
+date-fns
+intl
+phosphor-react-native
