@@ -42,30 +42,31 @@ export const theme = extendTheme({
         mb: 4,
         h: 14,
         w: 'full',
+        variant: '$solid',
         _text: {
-          color: 'white',
+          color: '$white',
           fontFamily: 'heading',
           fontSize: 'sm',
         },
       }),
       defaultProps: () => ({
-        variant: 'primary',
+        variant: '$solid',
       }),
       variants: {
-        primary: (props: any) => ({
+        $solid: (props: any) => ({
           rounded: 'sm',
           bg: '$green.700',
           _pressed: {
             bg: '$green.500',
           },
           _text: {
-            color: 'white',
+            color: '$white',
             fontFamily: 'heading',
             fontSize: 'sm',
           },
           ...props,
         }),
-        secondary: (props: any) => ({
+        $outline: (props: any) => ({
           rounded: 'sm',
           bg: 'transparent',
           borderWidth: 1,
@@ -77,6 +78,23 @@ export const theme = extendTheme({
           },
           _text: {
             color: '$green.500',
+          },
+          ...props,
+        }),
+        $link: (props: any) => ({
+          _text: {
+            color: '$green.500',
+            fontWeight: 'bold',
+            fontSize: 'md',
+            borderBottomWidth: 1,
+            borderBottomColor: 'transparent',
+          },
+          _pressed: {
+            _text: {
+              color: '$green.700',
+              borderBottomWidth: 1,
+              borderBottomColor: '$green.500',
+            },
           },
           ...props,
         }),

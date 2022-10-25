@@ -30,9 +30,9 @@ export function SignUp() {
           <Input placeholder="E-mail" keyboardType="email-address" autoCapitalize="none" />
           <Input placeholder="Senha" secureTextEntry />
           <Input placeholder="Confirme  a Senha" secureTextEntry />
-          <Button variant="primary">Criar e acessar</Button>
+          <Button variant="$solid">Criar e acessar</Button>
         </Center>
-        <Button variant="secondary" mt="24" onPress={() => goBack()}>
+        <Button variant="$outline" mt="24" onPress={() => goBack()}>
           Voltar para o login
         </Button>
       </VStack>

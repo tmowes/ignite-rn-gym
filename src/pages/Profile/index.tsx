@@ -31,12 +31,7 @@ export function Profile() {
           ) : (
             <Avatar source={{ uri: userPhoto }} size={PHOTO_SIZE} />
           )}
-          <Button
-            variant="link"
-            _text={{ color: '$green.500', fontWeight: 'bold', fontSize: 'md' }}
-            mt="1"
-            mb="4"
-          >
+          <Button variant="$link" mt="-2" mb="4">
             Alterar foto
           </Button>
           <Input bg="$gray.600" placeholder="Nome" />
@@ -46,7 +41,7 @@ export function Profile() {
           </Heading>
           <Input bg="$gray.600" placeholder="Nova senha" secureTextEntry />
           <Input bg="$gray.600" placeholder="Confirme a nova senha" secureTextEntry />
-          <Button variant="primary" mt="2">
+          <Button variant="$solid" mt="2">
             Atualizar
           </Button>
         </Center>

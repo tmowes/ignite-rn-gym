@@ -47,7 +47,7 @@ export function Exercise() {
               </Text>
             </HStack>
           </HStack>
-          <Button variant="primary">Marcar como realizado</Button>
+          <Button variant="$solid">Marcar como realizado</Button>
         </Box>
       </VStack>
     </VStack>

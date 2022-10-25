@@ -30,7 +30,7 @@ export function SignIn() {
           </Heading>
           <Input placeholder="E-mail" keyboardType="email-address" autoCapitalize="none" />
           <Input placeholder="Senha" secureTextEntry />
-          <Button variant="primary">Acessar</Button>
+          <Button variant="$solid">Acessar</Button>
         </Center>
         <Center mt="24">
           <Text color="$gray.100" fontSize="sm" mb="4">
