@@ -1,4 +1,6 @@
-import { Heading, ScrollView, VStack, Image, Text, Center, Input, Button } from 'native-base'
+import { useState } from 'react'
+
+import { Heading, ScrollView, VStack, Image, Text, Center, Button, useToast } from 'native-base'
 import { useNavigation } from '@react-navigation/native'
 import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -6,11 +8,17 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import bgImg from '@assets/background.png'
 import LogoSvg from '@assets/logo.svg'
 import { InputControlled } from '@components/InputControlled'
+import { api } from '@services/api'
+import { AppError } from '@utils/AppError'
+import { useAuth } from '@contexts/AuthProvider'
 
 import { FormDataProps, signUpSchema } from './schema'
 
 export function SignUp() {
   const { goBack } = useNavigation()
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const toast = useToast()
+  const { onSignIn } = useAuth()
   const {
     control,
     handleSubmit,
@@ -25,8 +33,22 @@ export function SignUp() {
     resolver: zodResolver(signUpSchema),
   })
 
-  const onSignUp = (data: FormDataProps) => {
-    console.log('SignUp', { data })
+  const onSignUp = async (formData: FormDataProps) => {
+    try {
+      setIsSubmitting(true)
+      await api.post('/users', formData)
+      await onSignIn(formData.email, formData.password)
+    } catch (error) {
+      const isAppError = error instanceof AppError
+      setIsSubmitting(false)
+      toast.show({
+        title: isAppError
+          ? error.message
+          : 'Não foi possível criar sua conta, tente novamente mais tarde.',
+        bgColor: 'red.500',
+        placement: 'top',
+      })
+    }
   }
 
   return (
@@ -103,12 +125,12 @@ export function SignUp() {
               />
             )}
           />
-          <Button variant="$solid" onPress={handleSubmit(onSignUp)}>
+          <Button variant="$solid" onPress={handleSubmit(onSignUp)} isLoading={isSubmitting}>
             Criar e acessar
           </Button>
         </Center>
         <Button variant="$outline" mt="12" onPress={() => goBack()}>
-          Voltar para o login
+          Voltar para o loginz
         </Button>
       </VStack>
     </ScrollView>

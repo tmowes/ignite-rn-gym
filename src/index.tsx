@@ -6,6 +6,7 @@ import { NativeBaseProvider } from 'native-base'
 
 import { Loading } from '@components/Loading'
 import { theme } from '@styles/theme'
+import { AuthProvider } from '@contexts/AuthProvider'
 
 import { Routes } from './routes'
 
@@ -15,8 +16,10 @@ export function AppSrc() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <NativeBaseProvider theme={theme}>
-        {fontsLoaded ? <Routes /> : <Loading />}
-        <StatusBar style="light" backgroundColor="transparent" translucent />
+        <AuthProvider>
+          {fontsLoaded ? <Routes /> : <Loading />}
+          <StatusBar style="light" backgroundColor="transparent" translucent />
+        </AuthProvider>
       </NativeBaseProvider>
     </GestureHandlerRootView>
   )

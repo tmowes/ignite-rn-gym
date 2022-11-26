@@ -5,16 +5,18 @@ import {
   BottomTabNavigationOptions,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs'
-import { Avatar, Heading, HStack, IconButton, Text, useTheme, VStack } from 'native-base'
+import { IconButton, useTheme } from 'native-base'
 import { useNavigation } from '@react-navigation/native'
 
 import HomeSvg from '@assets/home.svg'
 import HistorySvg from '@assets/history.svg'
 import ProfileSvg from '@assets/profile.svg'
 import { Home } from '@pages/Home'
-import { History } from '@pages/History'
+import { HistoryTab } from '@pages/History'
 import { Profile } from '@pages/Profile'
-import { Exercise } from '@pages/Exercise'
+import { ExerciseDetails } from '@pages/Exercise'
+import { useAuth } from '@contexts/AuthProvider'
+import { HomeHeader } from '@pages/Home/components/HomeHeader'
 
 import { PrivateRoutesProps } from './types'
 
@@ -23,6 +25,7 @@ const { Navigator, Screen } = createBottomTabNavigator<PrivateRoutesProps>()
 export default function PrivateRoutes() {
   const { colors, sizes } = useTheme()
   const { goBack } = useNavigation()
+  const { onSignOut } = useAuth()
 
   const iconSize = { width: sizes[6], height: sizes[6] }
   const screenOptions: BottomTabNavigationOptions = {
@@ -48,19 +51,11 @@ export default function PrivateRoutes() {
   }
 
   function CustomSignOutButton() {
-    return <IconButton icon={<SignOut size={24} color={colors.$gray[100]} />} />
-  }
-
-  function HomeHeader() {
     return (
-      <HStack bg="$gray.600" pl="6" pr="2" pt="8" pb="2" alignItems="center" w="full">
-        <Avatar source={{ uri: 'https://github.com/tmowes.png' }} mr="4" size={16} />
-        <VStack flex={1}>
-          <Text fontSize="md">Olá,</Text>
-          <Heading fontSize="md">Julius</Heading>
-        </VStack>
-        <IconButton icon={<SignOut size={24} color={colors.$gray[100]} />} />
-      </HStack>
+      <IconButton
+        onPress={() => onSignOut()}
+        icon={<SignOut size={24} color={colors.$gray[100]} />}
+      />
     )
   }
 
@@ -81,7 +76,7 @@ export default function PrivateRoutes() {
       />
       <Screen
         name="history"
-        component={History}
+        component={HistoryTab}
         options={{
           tabBarIcon: ({ color }) => <HistorySvg fill={color} {...iconSize} />,
           headerTitle: 'Histórico de Exercícios',
@@ -116,13 +111,13 @@ export default function PrivateRoutes() {
       />
       <Screen
         name="exercise"
-        component={Exercise}
+        component={ExerciseDetails}
         options={{
           tabBarButton: () => null,
           // tabBarIcon: ({ color }) => <ProfileSvg fill={color} {...iconSize} />,
           headerLeft: () => <CustomGoBackButtom />,
           headerTitle: 'Exercicio',
-          headerTitleAlign: 'center',
+          headerTitleAlign: 'left',
           headerShadowVisible: false,
           headerTitleStyle: {
             color: colors.$gray[100],

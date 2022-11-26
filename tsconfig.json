@@ -15,10 +15,13 @@
         "./src/contexts/*"
       ],
       "@dtos/*": [
-        "src/dtos/*"
+        "./src/dtos/*"
       ],
       "@hooks/*": [
         "./src/hooks/*"
+      ],
+      "@models/*": [
+        "./src/models/*"
       ],
       "@pages/*": [
         "./src/pages/*"

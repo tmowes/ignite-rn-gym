@@ -6,7 +6,7 @@ export function InputControlled(props: InputControlledProps) {
   const { errorMessage, isInvalid, ...attrs } = props
   const invalid = !!errorMessage || isInvalid
   return (
-    <FormControl isInvalid={invalid} mb="4">
+    <FormControl isInvalid={invalid} mb="2">
       <Input isInvalid={invalid} {...attrs} />
       <FormControl.ErrorMessage
         _text={{
